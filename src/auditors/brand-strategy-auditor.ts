@@ -22,6 +22,7 @@ export class BrandStrategyAuditor {
     console.log('\n🔍 BRAND QUALITY AUDIT');
     console.log(`   Brand: ${brandName}`);
     console.log(`   Mode: ${options.mode || 'standard'}`);
+    console.log(`   Structure: ${this.detectStructureType(strategy)}`);
     console.log('═'.repeat(60) + '\n');
 
     this.findings = [];
@@ -82,32 +83,41 @@ export class BrandStrategyAuditor {
     let sourcedClaims = 0;
     let totalClaims = claims.length;
 
+    // Only count proof points and verifiable claims for source quality
+    const verifiableClaims = claims.filter(c =>
+      c.location.includes('proofPoints') || this.isVerifiable(c.text)
+    );
+    const verifiableTotal = verifiableClaims.length;
+
     claims.forEach((claim) => {
+      const isVerifiable = claim.location.includes('proofPoints') || this.isVerifiable(claim.text);
+
       if (claim.source || claim.sourceUrl) {
         sourcedClaims++;
-      } else {
+      } else if (isVerifiable) {
+        // Only warn about unsourced verifiable claims
         this.findings.push({
           severity: 'warning',
           category: 'sources',
-          message: `Unsourced claim: "${claim.text.substring(0, 60)}..."`,
+          message: `Unsourced verifiable claim: "${claim.text.substring(0, 60)}..."`,
           location: claim.location,
         });
       }
     });
 
-    const score = totalClaims > 0 ? (sourcedClaims / totalClaims) * 10 : 0;
+    const score = verifiableTotal > 0 ? (sourcedClaims / verifiableTotal) * 10 : 8;
 
     if (score < 5) {
       this.findings.push({
         severity: 'critical',
         category: 'sources',
-        message: `Only ${sourcedClaims}/${totalClaims} claims have sources`,
-        details: 'Critical issue: Most claims lack source attribution',
+        message: `Only ${sourcedClaims}/${verifiableTotal} verifiable claims have sources`,
+        details: 'Critical issue: Factual claims lack source attribution',
       });
 
       this.recommendations.push({
         priority: 'high',
-        action: 'Add source citations for all strategic claims',
+        action: 'Add source citations for all factual/verifiable claims',
         estimatedEffort: '2-4 hours',
         impact: 'Increases credibility and reduces hallucination risk',
       });
@@ -117,7 +127,7 @@ export class BrandStrategyAuditor {
       score,
       weight: 0.3,
       status: score >= 8 ? 'excellent' : score >= 6 ? 'good' : score >= 4 ? 'needs-work' : 'critical',
-      details: `${sourcedClaims}/${totalClaims} claims have sources (${Math.round((sourcedClaims / totalClaims) * 100)}%)`,
+      details: `${sourcedClaims}/${verifiableTotal} verifiable claims have sources (${Math.round((sourcedClaims / verifiableTotal) * 100)}%)`,
     };
   }
 
@@ -205,12 +215,22 @@ export class BrandStrategyAuditor {
   private async auditProductionReadiness(strategy: BrandStrategy): Promise<ScoreDimension> {
     const issues: string[] = [];
 
-    // Check completeness
-    if (!strategy.purpose) issues.push('Missing purpose statement');
-    if (!strategy.mission) issues.push('Missing mission statement');
-    if (!strategy.vision) issues.push('Missing vision statement');
-    if (!strategy.values || strategy.values.length === 0) issues.push('Missing core values');
-    if (!strategy.positioning) issues.push('Missing positioning statement');
+    // Check completeness (support both flat and nested structures)
+    const purpose = strategy.purpose || (strategy as any).foundation?.purpose;
+    const mission = strategy.mission || (strategy as any).foundation?.mission;
+    const vision = strategy.vision || (strategy as any).foundation?.vision;
+    const values = strategy.values || (strategy as any).foundation?.values;
+    const positioning = strategy.positioning ||
+                       (strategy as any).positioning?.marketPosition ||
+                       (strategy as any).positioning?.targetAudience;
+
+    if (!purpose) issues.push('Missing purpose statement');
+    if (!mission) issues.push('Missing mission statement');
+    if (!vision) issues.push('Missing vision statement');
+    if (!values || (Array.isArray(values) && values.length === 0)) {
+      issues.push('Missing core values');
+    }
+    if (!positioning) issues.push('Missing positioning statement');
 
     const completeness = (5 - issues.length) / 5;
     const score = completeness * 10;
@@ -252,33 +272,70 @@ export class BrandStrategyAuditor {
   }> {
     const claims: any[] = [];
 
-    // Extract from proof points
-    if (strategy.proofPoints) {
-      strategy.proofPoints.forEach((pp, i) => {
-        claims.push({
-          text: pp.claim,
-          source: pp.source,
-          sourceUrl: pp.sourceUrl,
-          location: `proofPoints[${i}]`,
-        });
+    // Extract from proof points (support both flat and nested structures)
+    const proofPoints = strategy.proofPoints ||
+                        (strategy as any).positioning?.proofPoints ||
+                        [];
+
+    if (proofPoints.length > 0) {
+      proofPoints.forEach((pp: any, i: number) => {
+        // Handle both object format and string format
+        if (typeof pp === 'string') {
+          // Parse string format: "claim text (Source: source info, Confidence: X/10)"
+          const sourceMatch = pp.match(/\(Source:\s*(.+?)(?:,\s*Confidence:\s*\d+\/10)?\)/i);
+          const text = sourceMatch ? pp.substring(0, sourceMatch.index).trim() : pp;
+          let source = sourceMatch ? sourceMatch[1].trim() : undefined;
+
+          // Check if source contains multiple sources (comma-separated)
+          if (source && source.includes(',')) {
+            const sources = source.split(',').map(s => s.trim()).filter(s => s.length > 0);
+            source = sources.length > 1 ? sources as any : sources[0];
+          }
+
+          claims.push({
+            text,
+            source,
+            sourceUrl: undefined,
+            location: `proofPoints[${i}]`,
+          });
+        } else {
+          // Handle object format
+          claims.push({
+            text: pp.claim || pp,
+            source: pp.source,
+            sourceUrl: pp.sourceUrl,
+            location: `proofPoints[${i}]`,
+          });
+        }
       });
     }
 
-    // Extract from differentiators
-    if (strategy.differentiators) {
-      strategy.differentiators.forEach((diff, i) => {
+    // Extract from differentiators (support both flat and nested structures)
+    const differentiators = strategy.differentiators ||
+                           (strategy as any).positioning?.differentiation ||
+                           (strategy as any).positioning?.differentiators ||
+                           [];
+
+    if (differentiators.length > 0) {
+      differentiators.forEach((diff: any, i: number) => {
         claims.push({
-          text: diff,
+          text: typeof diff === 'string' ? diff : diff.claim || diff.text,
+          source: typeof diff === 'object' ? diff.source : undefined,
           location: `differentiators[${i}]`,
         });
       });
     }
 
-    // Extract from key messages
-    if (strategy.keyMessages) {
-      strategy.keyMessages.forEach((msg, i) => {
+    // Extract from key messages (support both flat and nested structures)
+    const keyMessages = strategy.keyMessages ||
+                       (strategy as any).messagingFramework?.keyMessages ||
+                       [];
+
+    if (keyMessages.length > 0) {
+      keyMessages.forEach((msg: any, i: number) => {
         claims.push({
-          text: msg,
+          text: typeof msg === 'string' ? msg : msg.message || msg.text,
+          source: typeof msg === 'object' ? msg.source : undefined,
           location: `keyMessages[${i}]`,
         });
       });
@@ -322,5 +379,25 @@ export class BrandStrategyAuditor {
       totalEffort: '8-14 hours',
       requiredExpertise: currentScore < 6 ? 'Senior strategist' : 'Mid-level analyst',
     };
+  }
+
+  private detectStructureType(strategy: BrandStrategy): string {
+    // Check for nested structure indicators
+    const hasFoundation = !!(strategy as any).foundation;
+    const hasMessagingFramework = !!(strategy as any).messagingFramework;
+    const hasNestedPositioning = !!(strategy as any).positioning?.proofPoints ||
+                                 !!(strategy as any).positioning?.differentiation;
+
+    if (hasFoundation || hasMessagingFramework || hasNestedPositioning) {
+      return 'nested (Horizon format)';
+    }
+
+    // Check for flat structure indicators
+    const hasDirectFields = !!strategy.purpose || !!strategy.mission || !!strategy.vision;
+    if (hasDirectFields) {
+      return 'flat (legacy format)';
+    }
+
+    return 'unknown';
   }
 }
