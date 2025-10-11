@@ -1,0 +1,48 @@
+{
+  "name": "brand-quality-auditor",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Ferrari-grade brand strategy quality verification tool - Deep source verification, fact-checking, and quality assessment",
+  "main": "dist/index.js",
+  "bin": {
+    "audit-brand": "./dist/cli/audit-cli.js"
+  },
+  "scripts": {
+    "audit": "tsx src/cli/audit-cli.ts",
+    "dev": "tsx src/cli/audit-cli.ts",
+    "build": "tsc",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "test": "vitest",
+    "install-global": "npm run build && npm link"
+  },
+  "keywords": [
+    "brand-quality",
+    "brand-audit",
+    "quality-verification",
+    "fact-checking",
+    "source-verification",
+    "brand-strategy",
+    "quality-assurance"
+  ],
+  "author": "Kalpesh Jaju",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.32.0",
+    "googleapis": "^140.0.0",
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
