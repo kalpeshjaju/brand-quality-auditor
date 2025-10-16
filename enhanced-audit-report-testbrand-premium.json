@@ -1,0 +1,186 @@
+{
+  "brandName": "TestBrand Premium",
+  "auditDate": "2025-10-15T19:11:56.237Z",
+  "overallScore": 7.2,
+  "scoreBreakdown": {
+    "sourceQuality": {
+      "score": 3.7125000000000004,
+      "weight": 0.3,
+      "status": "critical",
+      "details": "8 sources assessed. Average tier: 3.3"
+    },
+    "factVerification": {
+      "score": 10,
+      "weight": 0.25,
+      "status": "excellent",
+      "details": "6/6 numeric facts verified"
+    },
+    "dataRecency": {
+      "score": 10,
+      "weight": 0.15,
+      "status": "good",
+      "details": "4/4 sources are recent"
+    },
+    "crossVerification": {
+      "score": 4,
+      "weight": 0.15,
+      "status": "needs-work",
+      "details": "2/2 claims flagged for variance"
+    },
+    "productionReadiness": {
+      "score": 10,
+      "weight": 0.15,
+      "status": "excellent",
+      "details": "7/7 components present"
+    }
+  },
+  "findings": [
+    {
+      "severity": "critical",
+      "category": "sources",
+      "message": "High proportion of Tier 4 (low credibility) sources",
+      "details": "5/8 sources are social media or unverified"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Limited Tier 1 (highest credibility) sources",
+      "details": "Add peer-reviewed, government, or academic sources"
+    },
+    {
+      "severity": "warning",
+      "category": "verification",
+      "message": "2 claims show significant variance",
+      "details": "Average variance: 79.7%"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Upgrade source quality",
+      "impact": "Increases credibility and trust",
+      "estimatedEffort": "2-4 hours"
+    },
+    {
+      "priority": "high",
+      "action": "Verify high-priority numeric claims",
+      "impact": "Ensures accuracy of key metrics",
+      "estimatedEffort": "1-2 hours"
+    },
+    {
+      "priority": "high",
+      "action": "Reconcile conflicting numeric claims",
+      "impact": "Improves consistency and accuracy",
+      "estimatedEffort": "2-3 hours"
+    }
+  ],
+  "qualityImprovement": {
+    "currentScore": 7.2,
+    "targetScore": 8.7,
+    "totalEffort": "5-7.5 hours",
+    "requiredExpertise": "Mid-level analyst with fact-checking experience",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Upgrade source quality",
+        "expectedImprovement": 0.3,
+        "estimatedTime": "2-4 hours"
+      },
+      {
+        "step": 2,
+        "action": "Verify high-priority numeric claims",
+        "expectedImprovement": 0.3,
+        "estimatedTime": "1-2 hours"
+      },
+      {
+        "step": 3,
+        "action": "Reconcile conflicting numeric claims",
+        "expectedImprovement": 0.3,
+        "estimatedTime": "2-3 hours"
+      }
+    ]
+  },
+  "factAnalysis": {
+    "extractedTriples": [
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 50000000,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 125000000,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 75,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 120,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.75,
+        "subject": "company",
+        "predicate": "has",
+        "value": 5000,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.75,
+        "subject": "company",
+        "predicate": "has",
+        "value": 2024,
+        "type": "numeric"
+      }
+    ],
+    "extractionRate": 6,
+    "highPriorityFacts": [
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 50000000,
+        "type": "numeric"
+      },
+      {
+        "sourceText": "To revolutionize the gourmet food industry by delivering exceptional quality products that inspire culinary creativity and bring joy to every meal We source the finest ingredients from around the world, partner with artisan producers, and deliver premium gourmet experiences directly to customers' homes To become the global leader in premium gourmet food delivery, recognized for our uncompromising quality, sustainable practices, and customer satisfaction Quality without compromise Sustainability in every decision Innovation in product selection Transparency in sourcing Excellence in customer service The only gourmet food service that combines Michelin-star quality with the convenience of home delivery, backed by our 100% satisfaction guarantee We serve over 100,000 satisfied customers nationwide Based on our customer database as of December 2024 98% customer satisfaction rating Survey of 5,000 customers conducted in Q3 2024 We partner with 500 artisan producers across 30 countries Verified supplier contracts and partnership agreements Our revenue grew 150% year-over-year 2023 Revenue: $50 million 2024 Revenue: $125 million We are the #1 rated gourmet food delivery service Ranked first among 20 competitors in independent study Average order value increased from $75 to $120 E-commerce analytics showing AOV trends We reduced food waste by 40% since 2022 Sustainability audit conducted by third-party Customer retention rate of 85% Based on cohort analysis of 2024 customers Only company with direct relationships with 500+ artisan producers Proprietary cold-chain logistics ensuring freshness Industry-leading 48-hour delivery guarantee We bring the world's finest foods to your table Every product is carefully curated by our expert team Sustainability and quality go hand in hand",
+        "confidence": 0.85,
+        "subject": "value",
+        "predicate": "equals",
+        "value": 125000000,
+        "type": "numeric"
+      }
+    ]
+  },
+  "varianceAnalysis": {
+    "totalClaims": 2,
+    "flaggedClaims": 2,
+    "averageVariance": 0.7965120296927032
+  },
+  "sourceAnalysis": {
+    "averageTier": 3.25,
+    "tier1Count": 0,
+    "tier2Count": 3,
+    "tier3Count": 0,
+    "tier4Count": 5
+  }
+}

@@ -1,18 +1,41 @@
+# Dependencies
 node_modules/
-dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment
 .env
-*.log
-coverage/
+.env.local
+.env.*.local
+
+# State and cache
+.maker-checker-state/
+.maker-checker-costs/
+.cache/
+
+# Deep review outputs (local only)
+.deep-reviews/
+.deep-review-temp/
+
+# Build outputs
+dist/
+build/
+*.js
+*.js.map
+!scripts/**/*.js
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
-audit-reports/
-*.tsbuildinfo
-# Output files
-*.json
-*.md
-!README.md
-!INTEGRATION.md
-audit-report-*.json
-audit-report-*.md
-flyberry-*.json
-flyberry-*.md
-test-brand-audit.*
+Thumbs.db
+
+# Logs
+logs/
+*.log

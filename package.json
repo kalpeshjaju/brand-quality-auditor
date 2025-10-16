@@ -9,13 +9,17 @@
   },
   "scripts": {
     "audit": "tsx src/cli/audit-cli.ts",
+    "audit:enhanced": "tsx src/cli/enhanced-audit-cli.ts",
     "dev": "tsx src/cli/audit-cli.ts",
     "build": "tsc",
     "type-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
     "test": "vitest run",
     "test:watch": "vitest",
-    "install-global": "npm run build && npm link"
+    "install-global": "npm run build && npm link",
+    "detect-deep-review": "tsx scripts/orchestrator/deep-review-detector.ts",
+    "review:deep": "tsx scripts/local/deep-review.ts",
+    "review:deep:help": "tsx scripts/local/deep-review.ts --help"
   },
   "keywords": [
     "brand-quality",

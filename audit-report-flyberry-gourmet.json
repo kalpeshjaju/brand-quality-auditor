@@ -1,0 +1,72 @@
+{
+  "brandName": "Flyberry Gourmet",
+  "auditDate": "2025-10-11T06:40:45.270Z",
+  "overallScore": 3.8,
+  "scoreBreakdown": {
+    "sourceQuality": {
+      "score": 0,
+      "weight": 0.3,
+      "status": "critical",
+      "details": "0/0 claims have sources (NaN%)"
+    },
+    "factVerification": {
+      "score": 8,
+      "weight": 0.25,
+      "status": "excellent",
+      "details": "0 claims require verification"
+    },
+    "dataRecency": {
+      "score": 5,
+      "weight": 0.15,
+      "status": "needs-work",
+      "details": "0 sources have publication dates"
+    },
+    "crossVerification": {
+      "score": 5,
+      "weight": 0.15,
+      "status": "needs-work",
+      "details": "0/0 claims cross-verified"
+    },
+    "productionReadiness": {
+      "score": 2,
+      "weight": 0.15,
+      "status": "needs-work",
+      "details": "1/5 core components present"
+    }
+  },
+  "findings": [
+    {
+      "severity": "critical",
+      "category": "sources",
+      "message": "Only 0/0 claims have sources",
+      "details": "Critical issue: Most claims lack source attribution"
+    },
+    {
+      "severity": "critical",
+      "category": "quality",
+      "message": "Incomplete strategy: Missing purpose statement, Missing mission statement, Missing vision statement, Missing core values"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Add source citations for all strategic claims",
+      "estimatedEffort": "2-4 hours",
+      "impact": "Increases credibility and reduces hallucination risk"
+    }
+  ],
+  "qualityImprovement": {
+    "currentScore": 3.8,
+    "targetScore": 5.8,
+    "steps": [
+      {
+        "step": 1,
+        "action": "Add source citations for all strategic claims",
+        "expectedImprovement": 0.5,
+        "estimatedTime": "2-4 hours"
+      }
+    ],
+    "totalEffort": "8-14 hours",
+    "requiredExpertise": "Senior strategist"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "brandName": "Flyberry Gourmet",
+  "auditDate": "2025-10-11T06:46:04.534Z",
+  "overallScore": 4.8,
+  "scoreBreakdown": {
+    "sourceQuality": {
+      "score": 3.333333333333333,
+      "weight": 0.3,
+      "status": "critical",
+      "details": "5/15 claims have sources (33%)"
+    },
+    "factVerification": {
+      "score": 6,
+      "weight": 0.25,
+      "status": "good",
+      "details": "2 claims require verification"
+    },
+    "dataRecency": {
+      "score": 5,
+      "weight": 0.15,
+      "status": "needs-work",
+      "details": "0 sources have publication dates"
+    },
+    "crossVerification": {
+      "score": 0,
+      "weight": 0.15,
+      "status": "critical",
+      "details": "0/15 claims cross-verified"
+    },
+    "productionReadiness": {
+      "score": 10,
+      "weight": 0.15,
+      "status": "excellent",
+      "details": "5/5 core components present"
+    }
+  },
+  "findings": [
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Curated Quality Over Quantity: Thoughtfully selected pieces ...\"",
+      "location": "differentiators[0]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Conscious Accessibility: Sustainable and ethical production ...\"",
+      "location": "differentiators[1]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Effortless Versatility: Signature 'Day-to-Night' collections...\"",
+      "location": "differentiators[2]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Personalized Style Journey: AI-powered style quiz and recomm...\"",
+      "location": "differentiators[3]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Berry-Inspired Aesthetic: Distinctive color palette and visu...\"",
+      "location": "differentiators[4]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Versatility Without Compromise: Every piece is designed to w...\"",
+      "location": "keyMessages[0]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Effortless Style Strategy: We simplify fashion by curating c...\"",
+      "location": "keyMessages[1]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Quality That Lasts: Our commitment to premium materials and ...\"",
+      "location": "keyMessages[2]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Lifestyle-First Fashion: We understand your dynamic life and...\"",
+      "location": "keyMessages[3]"
+    },
+    {
+      "severity": "warning",
+      "category": "sources",
+      "message": "Unsourced claim: \"Authentic Personal Expression: Our collections empower you t...\"",
+      "location": "keyMessages[4]"
+    },
+    {
+      "severity": "critical",
+      "category": "sources",
+      "message": "Only 5/15 claims have sources",
+      "details": "Critical issue: Most claims lack source attribution"
+    },
+    {
+      "severity": "warning",
+      "category": "facts",
+      "message": "2 claims need fact-checking",
+      "details": "Statistical or specific claims should be verified with sources"
+    },
+    {
+      "severity": "info",
+      "category": "recency",
+      "message": "No source dates found - cannot assess data recency"
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "action": "Add source citations for all strategic claims",
+      "estimatedEffort": "2-4 hours",
+      "impact": "Increases credibility and reduces hallucination risk"
+    },
+    {
+      "priority": "medium",
+      "action": "Add multiple sources for key claims (cross-verification)",
+      "estimatedEffort": "3-5 hours",
+      "impact": "Reduces hallucination risk and increases confidence"
+    }
+  ],
+  "qualityImprovement": {
+    "currentScore": 4.8,
+    "targetScore": 6.8,
+    "steps": [
+      {
+        "step": 1,
+        "action": "Add source citations for all strategic claims",
+        "expectedImprovement": 0.5,
+        "estimatedTime": "2-4 hours"
+      },
+      {
+        "step": 2,
+        "action": "Add multiple sources for key claims (cross-verification)",
+        "expectedImprovement": 0.3,
+        "estimatedTime": "3-5 hours"
+      }
+    ],
+    "totalEffort": "8-14 hours",
+    "requiredExpertise": "Senior strategist"
+  }
+}
